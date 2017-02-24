@@ -82,3 +82,32 @@ input[type="checkbox"]:checked+span.newCheck::before {
   border-right: none;
   border-top: none;
 }
+
+
+/*radio img*/
+.newInputImg {
+  width: 18px;
+  height: 18px;
+  margin-right: 5px;
+  display: inline-block;
+  background: url(./checkbox.png) no-repeat;
+  background-position: -23px -9px;
+}
+
+input[type="radio"]:checked+span.newInputImg {
+  background-position: -58px -9px;
+}
+
+/*checkbox img*/
+.newCheckimg {
+  width: 18px;
+  height: 18px;
+  margin-right: 5px;
+  display: inline-block;
+  background: url(./checkbox.png) no-repeat;
+  background-position: -23px -31px;
+}
+
+input[type="checkbox"]:checked+span.newCheckimg {
+  background-position: -58px -30px;
+}
