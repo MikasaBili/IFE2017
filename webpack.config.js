@@ -1,6 +1,5 @@
 const path = require('path') // 处理路径
 const webpack = require('webpack')
-const autoprefixer = require('autoprefixer') // css 前缀
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const maps = require('./map.js')
@@ -20,13 +19,14 @@ for (let map in maps) {
   }))
 }
 const hotModule = new webpack.HotModuleReplacementPlugin()
-const sty = new ExtractTextPlugin('style.css')
-plugin.push(hotModule, autoprefixer, sty)
+const sty = new ExtractTextPlugin('[name]/[name].css')
+plugin.push(hotModule, sty)
 module.exports = {
   entry: maps,
   output: {
     filename: '[name]/[name].js',
-    path: dist + '/'
+    path: dist + '/',
+    publicPath: '/'
   },
   module: {
     rules: [
@@ -34,7 +34,13 @@ module.exports = {
         test: /\.(css|less)$/,
         use: ExtractTextPlugin.extract({
           fallback: 'style-loader',
-          use: ['css-loader?minimize', 'less-loader']
+          use: [{
+            loader: 'css-loader',
+            options: {
+              minimize: true,
+              importLoaders: 2
+            }
+          }, 'less-loader', 'postcss-loader']
         })
       },
       {
@@ -52,10 +58,7 @@ module.exports = {
       },
       {
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
-        loader: 'url-loader',
-        query: {
-          limit: 10000
-        }
+        loader: 'url-loader?limit=8192&name=images/[name].[ext]'
       }
     ]
   },

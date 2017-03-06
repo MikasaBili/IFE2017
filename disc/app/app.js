@@ -59,7 +59,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "3f5712973108f30a0fa1"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "3920a49da13ad2c2af63"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotMainModule = true; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
@@ -700,13 +700,13 @@
 /******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
 
 /******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "";
+/******/ 	__webpack_require__.p = "/";
 
 /******/ 	// __webpack_hash__
 /******/ 	__webpack_require__.h = function() { return hotCurrentHash; };
 
 /******/ 	// Load entry module and return exports
-/******/ 	return hotCreateRequire(3)(__webpack_require__.s = 3);
+/******/ 	return hotCreateRequire(5)(__webpack_require__.s = 5);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -728,6 +728,9 @@ var map = exports.map = [{
 }, {
   name: '右键',
   href: '/rightClick/index.html'
+}, {
+  name: '排序',
+  href: '/sort/index.html'
 }];
 
 /***/ }),
@@ -783,7 +786,9 @@ exports.default = SetTemplate;
 
 /***/ }),
 /* 2 */,
-/* 3 */
+/* 3 */,
+/* 4 */,
+/* 5 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";

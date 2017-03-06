@@ -1,0 +1,117 @@
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+a {
+  text-decoration: none;
+}
+.content {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 60%;
+  height: 80%;
+  .img{
+    width: 100%;
+    height: 100%;
+    background: url('./back.jpg') no-repeat;
+    background-size: cover;
+    transition: filter 0.5s;
+    position: absolute;
+    z-index: 1;
+  }
+  .main {
+    position: absolute;
+    z-index: 10;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    padding: 80px;
+    .center {
+      z-index: 20;
+      position: relative;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+      p.gradient {
+        z-index: 30;
+        opacity: 0;
+        background-image: -webkit-linear-gradient(left, deepskyblue, orangered 15%, greenyellow 30%, deepskyblue 50%, orangered 65%, greenyellow 80%, deepskyblue 100%);
+        -webkit-background-clip: text;
+        color: transparent;
+        animation: streamer 5s infinite linear;
+        background-size: 200% 100%;
+        font-size: 24px;
+        font-weight: 800;
+        transition: opacity 0.5s;
+      }
+      a.signup {
+        z-index: 30;
+        opacity: 0;
+        font-size: 18px;
+        color: deepskyblue;
+        transition: opacity 0.5s;
+      }
+    }
+  }
+}
+
+
+@keyframes streamer{
+    0%  {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: -100% 0;
+    }
+}
+
+.content:hover .main .center .gradient{
+  opacity: 1;
+}
+.content:hover .main .center .signup{
+  opacity: 1;
+}
+
+.center::before{
+  content: '';
+  border: 3px solid #fff;
+  position: absolute;
+  width: 100%;
+  height: 0;
+  border-top: none;
+  border-bottom: none;
+  transition: height 0.5s;
+  box-sizing: border-box;
+}
+
+.center::after{
+  content: '';
+  border: 3px solid #fff;
+  position: absolute;
+  height: 100%;
+  width: 0;
+  border-left: none;
+  border-right: none;
+  transition: width 0.5s;
+  box-sizing: border-box;
+}
+.content:hover .center::before{
+  height: 100%;
+}
+.content:hover .center::after{
+  width: 100%;
+}
+.content:hover .img{
+  filter: blur(2px)
+}

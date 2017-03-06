@@ -1,4 +1,4 @@
-import './style.css'
+import './sort.css'
 let sortmap = [
   18, 20, 34, 67, 99, 24, 35, 72, 17, 19, 73, 22, 46, 90
 ]

@@ -1,0 +1,1 @@
+import './fontGradient.less'
