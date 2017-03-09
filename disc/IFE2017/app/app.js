@@ -59,7 +59,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "3920a49da13ad2c2af63"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "31afef89cb5cfcc1d34a"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotMainModule = true; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
@@ -721,16 +721,16 @@ Object.defineProperty(exports, "__esModule", {
 });
 var map = exports.map = [{
   name: 'radio,checkbox',
-  href: '/radio/index.html'
+  href: '/IFE2017/radio/index.html'
 }, {
   name: '文字流光',
-  href: '/fontGradient/index.html'
+  href: '/IFE2017/fontGradient/index.html'
 }, {
   name: '右键',
-  href: '/rightClick/index.html'
+  href: '/IFE2017/rightClick/index.html'
 }, {
   name: '排序',
-  href: '/sort/index.html'
+  href: '/IFE2017/sort/index.html'
 }];
 
 /***/ }),

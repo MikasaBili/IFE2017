@@ -9,7 +9,7 @@ let plugin = []
 for (let map in maps) {
   plugin.push(new HtmlWebpackPlugin({
     template: view + '/' + map + '/index.html',
-    filename: map + '/index.html',
+    filename: 'IFE2017' + '/' + map + '/index.html',
     inject: 'body',
     chunks: [map],
     hash: true,
@@ -19,12 +19,12 @@ for (let map in maps) {
   }))
 }
 const hotModule = new webpack.HotModuleReplacementPlugin()
-const sty = new ExtractTextPlugin('[name]/[name].css')
+const sty = new ExtractTextPlugin('IFE2017/[name]/[name].css')
 plugin.push(hotModule, sty)
 module.exports = {
   entry: maps,
   output: {
-    filename: '[name]/[name].js',
+    filename: 'IFE2017/[name]/[name].js',
     path: dist + '/',
     publicPath: '/'
   },
@@ -58,7 +58,7 @@ module.exports = {
       },
       {
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
-        loader: 'url-loader?limit=8192&name=images/[name].[ext]'
+        loader: 'url-loader?limit=8192&name=IFE2017/images/[name].[ext]'
       }
     ]
   },

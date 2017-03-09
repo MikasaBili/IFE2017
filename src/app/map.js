@@ -1,14 +1,17 @@
 export const map = [{
   name: 'radio,checkbox',
-  href: '/radio/index.html'
+  href: '/IFE2017/radio/index.html'
 }, {
   name: '文字流光',
-  href: '/fontGradient/index.html'
+  href: '/IFE2017/fontGradient/index.html'
 }, {
   name: '右键',
-  href: '/rightClick/index.html'
+  href: '/IFE2017/rightClick/index.html'
 }, {
   name: '排序',
-  href: '/sort/index.html'
+  href: '/IFE2017/sort/index.html'
+}, {
+  name: 'loading',
+  href: '/IFE2017/loading/index.html'
 }
 ]

@@ -5,5 +5,6 @@ module.exports = {
   'fontGradient': src + '/fontGradient/main.js',
   'radio': src + '/radio/main.js',
   'rightClick': src + '/rightClick/main.js',
-  'sort': src + '/sort/main.js'
+  'sort': src + '/sort/main.js',
+  'loading': src + '/loading/main.js'
 }
