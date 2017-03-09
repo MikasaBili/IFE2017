@@ -240,7 +240,7 @@
 /******/ 				};
 /******/ 			});
 /******/ 			hotUpdate = {};
-/******/ 			var chunkId = 1;
+/******/ 			var chunkId = 3;
 /******/ 			{ // eslint-disable-line no-lone-blocks
 /******/ 				/*globals chunkId */
 /******/ 				hotEnsureUpdateChunk(chunkId);
@@ -706,74 +706,25 @@
 /******/ 	__webpack_require__.h = function() { return hotCurrentHash; };
 
 /******/ 	// Load entry module and return exports
-/******/ 	return hotCreateRequire(11)(__webpack_require__.s = 11);
+/******/ 	return hotCreateRequire(8)(__webpack_require__.s = 8);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ 11:
+/***/ 3:
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ 8:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-__webpack_require__(5);
-
-var sortmap = [18, 20, 34, 67, 99, 24, 35, 72, 17, 19, 73, 22, 46, 90];
-
-var maphtml = function maphtml(val, index) {
-  return '\n    <div class="map" style="height:' + val + 'px;left:' + index * 40 + 'px;"></div>\n  ';
-};
-var sort = [];
-var html = '';
-sortmap.forEach(function (val, index) {
-  html += maphtml(val, index);
-});
-
-document.getElementById('sort').innerHTML = html;
-
-var htmlarr = document.querySelectorAll('.map');
-var len = sortmap.length;
-
-for (var i = 0; i < len; i++) {
-  var _loop = function _loop(j) {
-    if (sortmap[j] > sortmap[j + 1]) {
-      var s = sortmap[j];
-      sortmap[j] = sortmap[j + 1];
-      sortmap[j + 1] = s;
-    }
-    var obj = {};
-    sortmap.forEach(function (val, index) {
-      obj[index] = { val: val, color: 'salmon' };
-    });
-    obj[j + 1].color = 'orange';
-    sort.push(obj);
-  };
-
-  for (var j = 0; j < len - 1 - i; j++) {
-    _loop(j);
-  }
-}
-
-var getsort = setInterval(function () {
-  if (sort.length === 0) {
-    setInterval(getsort);
-    return false;
-  }
-  var shift = sort.shift();
-  for (var o in shift) {
-    htmlarr[o].style.height = shift[o].val + 'px';
-    htmlarr[o].style.background = shift[o].color;
-  }
-  console.log(1);
-}, 500);
-
-/***/ }),
-
-/***/ 5:
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
+__webpack_require__(3);
 
 /***/ })
 
