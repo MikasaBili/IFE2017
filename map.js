@@ -6,5 +6,6 @@ module.exports = {
   'radio': src + '/radio/main.js',
   'rightClick': src + '/rightClick/main.js',
   'sort': src + '/sort/main.js',
-  'loading': src + '/loading/main.js'
+  'loading': src + '/loading/main.js',
+  'snake': src + '/snake/main.js'
 }

@@ -13,5 +13,8 @@ export const map = [{
 }, {
   name: 'loading',
   href: '/IFE2017/loading/index.html'
+}, {
+  name: 'snake',
+  href: '/IFE2017/snake/index.html'
 }
 ]
