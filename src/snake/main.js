@@ -4,7 +4,7 @@ const _snake = {
   bodyColor: '#888888',
   headColor: '#37c700'
 }
-
+// 需要把背景和蛇分成2个模块 只用刷新蛇不用刷新背景
 const _map = {
   width: 600,
   height: 600,
