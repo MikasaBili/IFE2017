@@ -37,7 +37,7 @@ for (let i = 0; i < len; i++) {
 
 const getsort = setInterval(() => {
   if (sort.length === 0) {
-    setInterval(getsort)
+    clearInterval(getsort)
     return false
   }
   let shift = sort.shift()

@@ -18,6 +18,7 @@ class Snake {
   constructor () {
     Object.assign(this, _snake, _map)
     this.canvas = document.getElementById('snake')
+    this.bu = document.getElementById('bu')
   }
   init () {
     this.setMap()
@@ -25,7 +26,7 @@ class Snake {
   }
   // 设置地图
   setMap () {
-    let canvas = this.canvas
+    let canvas = this.bu
     canvas.setAttribute('width', this.width)
     canvas.setAttribute('height', this.height)
     let ctx = canvas.getContext('2d')
@@ -40,17 +41,34 @@ class Snake {
   // 画蛇
   setSnake () {
     let canvas = this.canvas
+    canvas.setAttribute('width', this.width)
+    canvas.setAttribute('height', this.height)
     let ctx = canvas.getContext('2d')
-    for (let i = 0; i < 5; i++) {
-      if (i === 4) {
-        ctx.fillStyle = this.headColor// 头
+    Array.from(this.body, (value) => {
+      if (value === this.body[this.body.length - 1]) {
+        ctx.fillStyle = this.headColor
       } else {
-        ctx.fillStyle = this.bodyColor // 身体
+        ctx.fillStyle = this.bodyColor
       }
-      ctx.fillRect(i * this.gridSize, 0, this.gridSize, this.gridSize)
-    }
+      ctx.fillRect(value * this.gridSize, 0, this.gridSize, this.gridSize)
+    })
+  }
+  // 爬行
+  snakeGO () {
+    this.body = Array.from(this.body, (value) => {
+      return (value = value + 1)
+    })
+  }
+  // 爬行时间
+  snakeTime () {
+    setInterval(() => {
+      this.snakeGO()
+      let canvas = this.canvas
+      let ctx = canvas.getContext('2d')
+      ctx.clearRect(0, 0, this.width, this.height)
+      this.setSnake()
+    }, 1000)
   }
 }
-
 let init = new Snake()
 init.init()
