@@ -59,7 +59,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "bb232112e02d039ce0a3"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "53f3be3c9c577d384e52"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotMainModule = true; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
@@ -706,7 +706,7 @@
 /******/ 	__webpack_require__.h = function() { return hotCurrentHash; };
 
 /******/ 	// Load entry module and return exports
-/******/ 	return hotCreateRequire(6)(__webpack_require__.s = 6);
+/******/ 	return hotCreateRequire(7)(__webpack_require__.s = 7);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -734,6 +734,9 @@ var map = exports.map = [{
 }, {
   name: 'loading',
   href: '/IFE2017/loading/index.html'
+}, {
+  name: 'snake',
+  href: '/IFE2017/snake/index.html'
 }];
 
 /***/ }),
@@ -792,7 +795,8 @@ exports.default = SetTemplate;
 /* 3 */,
 /* 4 */,
 /* 5 */,
-/* 6 */
+/* 6 */,
+/* 7 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";

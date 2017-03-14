@@ -59,7 +59,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "bb232112e02d039ce0a3"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "53f3be3c9c577d384e52"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotMainModule = true; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
@@ -706,18 +706,18 @@
 /******/ 	__webpack_require__.h = function() { return hotCurrentHash; };
 
 /******/ 	// Load entry module and return exports
-/******/ 	return hotCreateRequire(11)(__webpack_require__.s = 11);
+/******/ 	return hotCreateRequire(13)(__webpack_require__.s = 13);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ 11:
+/***/ 13:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-__webpack_require__(5);
+__webpack_require__(6);
 
 var sortmap = [18, 20, 34, 67, 99, 24, 35, 72, 17, 19, 73, 22, 46, 90];
 
@@ -757,7 +757,7 @@ for (var i = 0; i < len; i++) {
 
 var getsort = setInterval(function () {
   if (sort.length === 0) {
-    setInterval(getsort);
+    clearInterval(getsort);
     return false;
   }
   var shift = sort.shift();
@@ -770,7 +770,7 @@ var getsort = setInterval(function () {
 
 /***/ }),
 
-/***/ 5:
+/***/ 6:
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin

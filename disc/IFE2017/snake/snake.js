@@ -240,7 +240,7 @@
 /******/ 				};
 /******/ 			});
 /******/ 			hotUpdate = {};
-/******/ 			var chunkId = 6;
+/******/ 			var chunkId = 2;
 /******/ 			{ // eslint-disable-line no-lone-blocks
 /******/ 				/*globals chunkId */
 /******/ 				hotEnsureUpdateChunk(chunkId);
@@ -706,18 +706,129 @@
 /******/ 	__webpack_require__.h = function() { return hotCurrentHash; };
 
 /******/ 	// Load entry module and return exports
-/******/ 	return hotCreateRequire(11)(__webpack_require__.s = 11);
+/******/ 	return hotCreateRequire(12)(__webpack_require__.s = 12);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ 11:
+/***/ 12:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-console.log('index1');
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+__webpack_require__(5);
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var _snake = {
+  body: [0, 1, 2, 3, 4],
+  bodyColor: '#888888',
+  headColor: '#37c700'
+};
+
+var _map = {
+  width: 600,
+  height: 600,
+  mapColor: {
+    colorO: '#e6e6e6',
+    colorT: '#d2d2d2'
+  },
+  gridSize: 30
+};
+
+var Snake = function () {
+  function Snake() {
+    _classCallCheck(this, Snake);
+
+    Object.assign(this, _snake, _map);
+    this.canvas = document.getElementById('snake');
+    this.bu = document.getElementById('bu');
+  }
+
+  _createClass(Snake, [{
+    key: 'init',
+    value: function init() {
+      this.setMap();
+      this.setSnake();
+    }
+    // 设置地图
+
+  }, {
+    key: 'setMap',
+    value: function setMap() {
+      var canvas = this.bu;
+      canvas.setAttribute('width', this.width);
+      canvas.setAttribute('height', this.height);
+      var ctx = canvas.getContext('2d');
+      ctx.strokeRect(0, 0, this.width, this.height);
+      for (var i = 0; i < this.width / this.gridSize; i++) {
+        for (var j = 0; j < this.height / this.gridSize; j++) {
+          ctx.fillStyle = (i + j) % 2 ? this.mapColor.colorO : this.mapColor.colorT;
+          ctx.fillRect(i * this.gridSize, j * this.gridSize, this.gridSize, this.gridSize);
+        }
+      }
+    }
+    // 画蛇
+
+  }, {
+    key: 'setSnake',
+    value: function setSnake() {
+      var _this = this;
+
+      var canvas = this.canvas;
+      canvas.setAttribute('width', this.width);
+      canvas.setAttribute('height', this.height);
+      var ctx = canvas.getContext('2d');
+      Array.from(this.body, function (value) {
+        if (value === _this.body[_this.body.length - 1]) {
+          ctx.fillStyle = _this.headColor;
+        } else {
+          ctx.fillStyle = _this.bodyColor;
+        }
+        ctx.fillRect(value * _this.gridSize, 0, _this.gridSize, _this.gridSize);
+      });
+    }
+    // 爬行
+
+  }, {
+    key: 'snakeGO',
+    value: function snakeGO() {
+      this.body = Array.from(this.body, function (value) {
+        return value = value + 1;
+      });
+    }
+    // 爬行时间
+
+  }, {
+    key: 'snakeTime',
+    value: function snakeTime() {
+      var _this2 = this;
+
+      setInterval(function () {
+        _this2.snakeGO();
+        var canvas = _this2.canvas;
+        var ctx = canvas.getContext('2d');
+        ctx.clearRect(0, 0, _this2.width, _this2.height);
+        _this2.setSnake();
+      }, 1000);
+    }
+  }]);
+
+  return Snake;
+}();
+
+var init = new Snake();
+init.init();
+
+/***/ }),
+
+/***/ 5:
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
 
 /***/ })
 
