@@ -80,12 +80,41 @@ class Snake {
   }
   // 爬行
   snakeGO () {
-    this.body = Array.from(this.body, (value) => {
-      let newVal = value
-      newVal.x = value.x + 1
-      newVal.y = value.y + 0
-      return newVal
-    })
+    let snakeHeader = this.body[this.body.length - 1] // 头
+    let snakeH = Object.assign({}, snakeHeader) // 复制头,这个头代替删除的尾,深拷贝
+    this.body.pop() // 删除头
+    this.body.shift() // 尾 同时删除 尾
+    console.log(this.body)
+    if (this.order.length) {
+      let next = this.order.shift()
+      if (next === 'right') {
+        snakeHeader.x += 1
+      } else
+      if (next === 'left') {
+        snakeHeader.x -= 1
+      } else
+      if (next === 'up') {
+        snakeHeader.y -= 1
+      } else
+      if (next === 'down') {
+        snakeHeader.y += 1
+      }
+    } else {
+      if (this.new === 'right') {
+        snakeHeader.x += 1
+      } else
+      if (this.new === 'left') {
+        snakeHeader.x -= 1
+      } else
+      if (this.new === 'up') {
+        snakeHeader.y -= 1
+      } else
+      if (this.new === 'down') {
+        snakeHeader.y += 1
+      }
+    }
+    this.body.push(snakeHeader) // 把新的头添加到最后面
+    this.body.splice(this.body.length - 1, 0, snakeH) // 把上一个头的坐标添加到倒数第二个
   }
   // 清除蛇
   clearSnake () {
@@ -139,7 +168,6 @@ class Snake {
   }
   // 设置键盘下一步
   nextOrder (next) {
-    debugger
     if (this.new === 'right' || this.new === 'left') {
       if (next !== 'right' && next !== 'left') {
         this.order.push(next)
