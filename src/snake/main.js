@@ -26,11 +26,12 @@ const _game = {
   games: true
 }
 class Snake {
-  constructor () {
-    Object.assign(this, _snake, _map, _game)
+  constructor (option) {
+    Object.assign(this, _snake, _map, _game, option)
     this.snake = document.getElementById('snake')
     this.map = document.getElementById('map')
     this.star = document.getElementById('star')
+    this.cover = document.querySelector('#cover')
   }
   init () {
     this.setMap()
@@ -42,8 +43,11 @@ class Snake {
   // 设置地图
   setMap () {
     let canvas = this.map
+    let cover = this.cover
     canvas.setAttribute('width', this.width)
     canvas.setAttribute('height', this.height)
+    cover.style.width = this.width + 'px'
+    cover.style.height = this.height + 'px'
     let ctx = canvas.getContext('2d')
     ctx.strokeRect(0, 0, this.width, this.height)
     for (let i = 0; i < this.width / this.gridSize; i++) {
@@ -103,8 +107,13 @@ class Snake {
       }
     }
     // 下面是判断是否撞墙
-    if (snakeHeader.x >= (this.width / this.gridSize) || snakeHeader.x < 0 || snakeHeader.y >= (this.height / this.gridSize) || snakeHeader.y < 0) {
+    if (snakeHeader.x >= (this.width / this.gridSize) || snakeHeader.x < 0 || snakeHeader.y >= (this.height / this.gridSize) || snakeHeader.y < 0) { // 这个是撞墙
       this.games = false
+      console.log('撞到墙了')
+    }
+    if (JSON.stringify(this.body).indexOf(JSON.stringify(snakeHeader)) !== -1) { // 撞到自己的身体
+      this.games = false
+      console.log('撞到了自己的身体')
     }
     this.body.push(snakeHeader) // 把新的头添加到最后面
     this.body.splice(this.body.length - 1, 0, snakeH) // 把上一个头的坐标添加到倒数第二个
@@ -171,7 +180,8 @@ class Snake {
   // 暂停
   suspend () {
     this.isStart = !this.isStart
-    console.log(this.isStart)
+    let conver = this.cover
+    conver.classList.toggle('none', this.isStart)
     if (this.isStart) {
       this.snakeTime()
     }
@@ -224,5 +234,6 @@ class Snake {
     ctx.clearRect(x * this.gridSize, y * this.gridSize, this.gridSize, this.gridSize)
   }
 }
+
 let init = new Snake()
 init.init()

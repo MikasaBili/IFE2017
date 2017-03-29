@@ -14,9 +14,13 @@
 	<meta name="x5-fullscreen" content="true">
   <title>snake</title>
 </head>
-<body style="position: relative">
-	<canvas id="map" style="position: relative;z-index: 1"></canvas>
-  <canvas id="snake" style="position: absolute;z-index: 2"></canvas>
-	<canvas id="star" style="position: absolute;z-index: 3"></canvas>
+<body>
+	<canvas id="map" style="z-index: 1"></canvas>
+  <canvas id="snake" style="z-index: 2"></canvas>
+	<canvas id="star" style="z-index: 3"></canvas>
+	<div id="cover" class="state none" style="z-index: 4">
+		<h2>游戏暂停</h2>
+		<p>按空格开始</p>
+	</div>
 </body>
 </html>
